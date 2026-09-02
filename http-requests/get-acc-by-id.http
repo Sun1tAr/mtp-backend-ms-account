@@ -1,0 +1,4 @@
+###
+GET http://localhost:8082/accounts/by-id?
+    id=b4d54291-ac2b-44bb-bfea-bb531de08668
+X-User-ID: 22

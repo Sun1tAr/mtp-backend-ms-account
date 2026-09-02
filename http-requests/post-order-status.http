@@ -1,0 +1,13 @@
+###
+POST http://localhost:8082/orders/status
+Content-Type: application/json
+
+{
+  "order": {
+    "id": "232161dc-8c9c-4ba6-9f85-dabed533dc06",
+    "amount": 10,
+    "source": "",
+    "target": "b4d54291-ac2b-44bb-bfea-bb531de08668",
+    "type": "REVENUE"
+  }
+}

@@ -1,0 +1,81 @@
+package b4e.ru.mtp.backend.ms.account.service.impl;
+
+import b4e.ru.mtp.backend.commons.dto.acc.CreateAccountRequest;
+import b4e.ru.mtp.backend.commons.dto.acc.GetAccByIdResponse;
+import b4e.ru.mtp.backend.commons.dto.acc.GetAccountsResponse;
+import b4e.ru.mtp.backend.commons.dto.common.GetMoneyResourceRequest;
+import b4e.ru.mtp.backend.commons.dto.common.GetMoneyResourcesResponse;
+import b4e.ru.mtp.backend.commons.dto.domain.Account;
+import b4e.ru.mtp.backend.commons.dto.domain.MoneyResource;
+import b4e.ru.mtp.backend.commons.exception.MtpErrorCode;
+import b4e.ru.mtp.backend.commons.exception.MtpException;
+import b4e.ru.mtp.backend.commons.service.RequestContextService;
+import b4e.ru.mtp.backend.ms.account.entity.AccountEntity;
+import b4e.ru.mtp.backend.ms.account.mapper.AccountMapper;
+import b4e.ru.mtp.backend.ms.account.repository.AccountRepository;
+import b4e.ru.mtp.backend.ms.account.service.AccountService;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Service
+@RequiredArgsConstructor
+public class AccountServiceImpl implements AccountService {
+
+    private final AccountRepository accountRepository;
+    private final RequestContextService requestContextService;
+    private final AccountMapper mapper;
+
+    @Transactional
+    @Override
+    public void createAccount(CreateAccountRequest request) {
+        Long userId = requestContextService.getUserId();
+        AccountEntity account = AccountEntity.builder()
+                .amount(0L)
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .ownerId(userId)
+                .build();
+        accountRepository.save(account);
+    }
+
+    @Override
+    public GetAccountsResponse getAccounts() {
+        List<AccountEntity> usersAccs = accountRepository.findUsersAccs(requestContextService.getUserId());
+        List<Account> list = usersAccs.stream().map(mapper::mapEntityToAccount).toList();
+        return new GetAccountsResponse(list);
+    }
+
+    @Override
+    public GetAccByIdResponse getAccountById(String id) {
+        Long userId = requestContextService.getUserId();
+        Optional<AccountEntity> optional = accountRepository.findUserAccById(userId, UUID.fromString(id));
+        if (optional.isEmpty()) {
+            throw new MtpException(MtpErrorCode.ACCOUNT_NOT_FOUND);
+        }
+        Account account = mapper.mapEntityToAccount(optional.get());
+        return new GetAccByIdResponse(account);
+    }
+
+    @Override
+    public GetMoneyResourcesResponse getMoneyResources(GetMoneyResourceRequest request) {
+        Long userId = requestContextService.getUserId();
+        List<AccountEntity> entityList = accountRepository.findByIdsForUser(request.getFindIds(), userId);
+        List<MoneyResource> list = entityList.stream().map(mapper::mapEntityToResource).toList();
+        return new GetMoneyResourcesResponse(list);
+    }
+
+    @Override
+    public AccountEntity getAccountById(UUID id) {
+        return accountRepository.findById(id).orElseThrow(() -> new MtpException(MtpErrorCode.ACCOUNT_NOT_FOUND));
+    }
+
+    @Override
+    public void updateAccount(AccountEntity account) {
+        accountRepository.save(account);
+    }
+}

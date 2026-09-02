@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2026-08-31-create-table-account
+      author: dtuev
+      changes:
+        - createTable:
+            tableName: account
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: owner_id
+                  type: bigint
+              - column:
+                  name: title
+                  type: varchar(50)
+              - column:
+                  name: description
+                  type: varchar
+              - column:
+                  name: amount
+                  type: bigint

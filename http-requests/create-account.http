@@ -1,0 +1,9 @@
+###
+POST http://localhost:8082/accounts/create
+X-User-ID: 22
+Content-Type: application/json
+
+{
+  "title": "иуктук",
+  "description": "ываыва"
+}
