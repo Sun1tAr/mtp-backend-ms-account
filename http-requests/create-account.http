@@ -1,9 +1,10 @@
 ###
-POST http://localhost:8082/accounts/create
-X-User-ID: 22
+POST http://localhost:8080/accounts/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwidWlkIjoiMSIsImV4cCI6MTc4ODkwODc2OH0.QzDutZAD5x0WlFr6IhVqEMN4PO0ICV5GQcloQqwaye4
+#X-User-ID: 22
 Content-Type: application/json
 
 {
-  "title": "иуктук",
-  "description": "ываыва"
+  "title": "Gerbre",
+  "description": "lfklrje"
 }
