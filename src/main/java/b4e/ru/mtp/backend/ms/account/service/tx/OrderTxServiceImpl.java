@@ -1,6 +1,6 @@
 package b4e.ru.mtp.backend.ms.account.service.tx;
 
-import b4e.ru.mtp.backend.commons.dto.domain.OrderStatusCode;
+import b4e.ru.mtp.backend.ms.account.domain.OrderStatusCode;
 import b4e.ru.mtp.backend.ms.account.entity.AccountEntity;
 import b4e.ru.mtp.backend.ms.account.entity.OrderEntity;
 import b4e.ru.mtp.backend.ms.account.repository.OrderRepository;

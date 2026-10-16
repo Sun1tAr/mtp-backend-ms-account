@@ -1,20 +1,15 @@
 package b4e.ru.mtp.backend.ms.account.service.impl;
 
-import b4e.ru.mtp.backend.commons.dto.acc.ExecuteOrderRequest;
-import b4e.ru.mtp.backend.commons.dto.acc.GetOrderStatusResponse;
-import b4e.ru.mtp.backend.commons.dto.domain.OrderStatusCode;
-import b4e.ru.mtp.backend.ms.account.entity.AccountEntity;
+import b4e.ru.mtp.backend.ms.account.api.dto.ExecuteOrderRequest;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetOrderStatusResponse;
+import b4e.ru.mtp.backend.ms.account.domain.OrderStatusCode;
 import b4e.ru.mtp.backend.ms.account.entity.OrderEntity;
 import b4e.ru.mtp.backend.ms.account.repository.OrderRepository;
-import b4e.ru.mtp.backend.ms.account.service.AccountService;
 import b4e.ru.mtp.backend.ms.account.service.OrderService;
 import b4e.ru.mtp.backend.ms.account.service.OrderTxService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 

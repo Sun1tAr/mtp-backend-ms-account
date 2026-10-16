@@ -1,16 +1,12 @@
 package b4e.ru.mtp.backend.ms.account.entity;
 
-import b4e.ru.mtp.backend.commons.dto.domain.OrderStatusCode;
-import b4e.ru.mtp.backend.commons.dto.domain.TransactionTypeCode;
+import b4e.ru.mtp.backend.ms.account.domain.OrderStatusCode;
+import b4e.ru.mtp.backend.ms.account.domain.TransactionTypeCode;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

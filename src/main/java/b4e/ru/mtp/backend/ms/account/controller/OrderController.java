@@ -1,7 +1,7 @@
 package b4e.ru.mtp.backend.ms.account.controller;
 
-import b4e.ru.mtp.backend.commons.dto.acc.ExecuteOrderRequest;
-import b4e.ru.mtp.backend.commons.dto.acc.GetOrderStatusResponse;
+import b4e.ru.mtp.backend.ms.account.api.dto.ExecuteOrderRequest;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetOrderStatusResponse;
 import b4e.ru.mtp.backend.ms.account.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

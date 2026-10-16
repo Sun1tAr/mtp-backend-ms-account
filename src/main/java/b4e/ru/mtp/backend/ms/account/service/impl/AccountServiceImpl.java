@@ -1,19 +1,20 @@
 package b4e.ru.mtp.backend.ms.account.service.impl;
 
-import b4e.ru.mtp.backend.commons.dto.acc.CreateAccountRequest;
-import b4e.ru.mtp.backend.commons.dto.acc.GetAccByIdResponse;
-import b4e.ru.mtp.backend.commons.dto.acc.GetAccountsResponse;
-import b4e.ru.mtp.backend.commons.dto.common.GetMoneyResourceRequest;
-import b4e.ru.mtp.backend.commons.dto.common.GetMoneyResourcesResponse;
-import b4e.ru.mtp.backend.commons.dto.domain.Account;
-import b4e.ru.mtp.backend.commons.dto.domain.MoneyResource;
-import b4e.ru.mtp.backend.commons.exception.MtpErrorCode;
-import b4e.ru.mtp.backend.commons.exception.MtpException;
-import b4e.ru.mtp.backend.commons.service.RequestContextService;
+
+import b4e.ru.mtp.backend.ms.account.api.dto.CreateAccountRequest;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetAccByIdResponse;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetAccountsResponse;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetMoneyResourceRequest;
+import b4e.ru.mtp.backend.ms.account.api.dto.GetMoneyResourcesResponse;
+import b4e.ru.mtp.backend.ms.account.domain.Account;
+import b4e.ru.mtp.backend.ms.account.domain.MoneyResource;
 import b4e.ru.mtp.backend.ms.account.entity.AccountEntity;
+import b4e.ru.mtp.backend.ms.account.exception.MtpErrorCode;
+import b4e.ru.mtp.backend.ms.account.exception.MtpException;
 import b4e.ru.mtp.backend.ms.account.mapper.AccountMapper;
 import b4e.ru.mtp.backend.ms.account.repository.AccountRepository;
 import b4e.ru.mtp.backend.ms.account.service.AccountService;
+import b4e.ru.mtp.backend.ms.account.service.RequestContextService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
