@@ -7,7 +7,7 @@ import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RequestContextService {
+public class RequestContextService {//fixme test
 
     public static String MDC_USER_ID = "user_id";
 

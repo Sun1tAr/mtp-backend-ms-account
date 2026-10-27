@@ -21,12 +21,12 @@ public class OrderTxServiceImpl implements OrderTxService {
     private final AccountService accountService;
 
     @Override
-    @Transactional
+    @Transactional //fixme IT
     public OrderEntity saveOrder(OrderEntity orderEntity) {
         return orderRepository.save(orderEntity);
     }
 
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.SERIALIZABLE) //fixme IT
     @Override
     public void recalculateAccAmounts(OrderEntity orderEntity) {
         log.debug("Начало перерасчета суммы на счетах по заявке [{}]", orderEntity.getId());

@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     private final OrderTxService txService;
 
     @Override
-    public void executeOrder(ExecuteOrderRequest request) {
+    public void executeOrder(ExecuteOrderRequest request) {//fixme test
         log.debug("Начало выполнения заявки [{}]", request.getOrder().getId());
         OrderEntity orderEntity = OrderEntity.builder()
                 .id(request.getOrder().getId())
@@ -39,8 +39,8 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public GetOrderStatusResponse getOrderStatus(ExecuteOrderRequest request) {
-       GetOrderStatusResponse response = new GetOrderStatusResponse();
+    public GetOrderStatusResponse getOrderStatus(ExecuteOrderRequest request) {//fixme test
+        GetOrderStatusResponse response = new GetOrderStatusResponse();
         Optional<OrderEntity> order = orderRepository.findById(request.getOrder().getId());
         if (order.isPresent()) {
             response.setOrderStatus(order.get().getStatus());

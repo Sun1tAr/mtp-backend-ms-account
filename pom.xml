@@ -135,6 +135,8 @@
                             <version>0.2.0</version>
                         </path>
                     </annotationProcessorPaths>
+                    <source>6</source>
+                    <target>6</target>
                 </configuration>
             </plugin>
         </plugins>
